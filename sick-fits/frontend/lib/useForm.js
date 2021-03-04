@@ -1,7 +1,13 @@
-import { useState } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 export default function useForm(initial = {}) {
   const [inputs, setInputs] = useState(initial);
+
+  const initialValues = useMemo(() => ({ ...initial }), [initial]);
+
+  useEffect(() => {
+    setInputs(initial);
+  }, [initial, initialValues]);
 
   function handleChange(e) {
     let { value, name, type } = e?.target;
@@ -23,7 +29,7 @@ export default function useForm(initial = {}) {
   }
 
   function clearForm() {
-    const stateEntries = Object.entries(initial).map(([key, _]) => [key, '']);
+    const stateEntries = Object.entries(initial).map(([key]) => [key, '']);
     const blankState = Object.fromEntries(stateEntries);
     setInputs(blankState);
   }

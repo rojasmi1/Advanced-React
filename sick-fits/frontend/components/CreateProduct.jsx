@@ -2,7 +2,7 @@ import { useMutation } from '@apollo/client';
 import gql from 'graphql-tag';
 import Router from 'next/router';
 import useForm from '../lib/useForm';
-import DisplayError from './ErrorMessage';
+import DisplayError from './DisplayError';
 import { ALL_PRODUCTS_QUERY } from './Products';
 import Form from './styles/Form';
 
