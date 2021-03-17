@@ -1,13 +1,13 @@
-import { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function useForm(initial = {}) {
   const [inputs, setInputs] = useState(initial);
 
-  const initialValues = useMemo(() => ({ ...initial }), [initial]);
+  const initialValues = Object.values(initial).join('');
 
   useEffect(() => {
     setInputs(initial);
-  }, [initial, initialValues]);
+  }, [initialValues]);
 
   function handleChange(e) {
     let { value, name, type } = e?.target;

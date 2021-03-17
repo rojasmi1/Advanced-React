@@ -42,6 +42,9 @@ const CartStyles = styled.div`
     list-style: none;
     overflow: scroll;
   }
+  button {
+    max-height: 28px;
+  }
 `;
 
 export default CartStyles;

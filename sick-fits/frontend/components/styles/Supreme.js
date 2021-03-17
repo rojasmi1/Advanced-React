@@ -6,6 +6,7 @@ const Supreme = styled.h3`
   display: inline-block;
   padding: 4px 5px;
   transform: skew(-3deg);
+  text-transform: capitalize;
   margin: 0;
   font-size: 4rem;
 `;
