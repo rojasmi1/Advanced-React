@@ -5,6 +5,9 @@ import Supreme from './styles/Supreme';
 import formatMoney from '../lib/formatMoney';
 import { useCart } from '../lib/cartState';
 import RemoveFromCart from './RemoveFromCart';
+import calcTotalPrice from '../lib/calcTotalPrice';
+import CloseButton from './styles/CloseButton';
+import Checkkout from './Checkout';
 
 const CartItemStyles = styled.li`
   padding: 1rem 0;
@@ -51,8 +54,8 @@ const Cart = () => {
     <CartStyles open={cartOpen}>
       <header>
         <Supreme>{me.name}'s Cart</Supreme>
+        <CloseButton onClick={closeCart}>Close</CloseButton>
       </header>
-      <button onClick={closeCart}>Close</button>
       <ul>
         {me?.cart
           ? me.cart.map((cartItem) => (
@@ -60,6 +63,10 @@ const Cart = () => {
             ))
           : null}
       </ul>
+      <footer>
+        <p>{formatMoney(calcTotalPrice(me.cart))}</p>
+        <Checkkout />
+      </footer>
     </CartStyles>
   );
 };
