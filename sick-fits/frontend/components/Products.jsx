@@ -1,6 +1,6 @@
 import { useQuery } from '@apollo/client';
 import gql from 'graphql-tag';
-import { useRouter } from 'next/dist/client/router';
+import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import Pagination from './Pagination';
 import Product from './Product';
